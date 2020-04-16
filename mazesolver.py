@@ -1,4 +1,4 @@
-from crawler import Crawler
+from mazetools import MazeSolver
 
 ascii_maze =	 ["00000000000000000000000000000000000000000000000000000000000000000000000000000 00",
 								"000                             00                         000000000000000000 00",
@@ -27,12 +27,6 @@ ascii_maze =	 ["0000000000000000000000000000000000000000000000000000000000000000
 start_x, start_y = (1, 10)
 end_x, end_y = (78, 1)
 
-crawler = Crawler(start_x, start_y, ascii_maze)
 
-while True:
-	crawler_position = (crawler.x, crawler.y)
-	print(crawler_position)
-	if crawler_position == (end_x, end_y):
-		break
-	crawler.crawl()
-print("Finished!")
+solver = MazeSolver(ascii_maze, start_x, start_y, end_x, end_y)
+solver.solve()

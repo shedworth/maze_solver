@@ -7,9 +7,8 @@ class MazeSolver:
 		self.num_of_squares = len(self.maze) * len(self.maze[0])
 
 	def solve(self):
-
 		finished = False
-		counter = 1
+		counter = 0
 		crawler = Crawler(self.start_x, self.start_y, self.maze)
 
 		for i in range(self.num_of_squares):
