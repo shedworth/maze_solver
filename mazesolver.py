@@ -24,9 +24,10 @@ ascii_maze =	 ["0000000000000000000000000000000000000000000000000000000000000000
 								"00     000000                                                                  0",
 								"00000000000000000000000000000000000000000000000000000000000000000000000000000000",]
 
-start_x, start_y = (1, 10)
-end_x, end_y = (78, 1)
+start_coords = (1, 10)
+end_coords = (78, 1)
 
 
-solver = MazeSolver(ascii_maze, start_x, start_y, end_x, end_y)
+solver = MazeSolver(ascii_maze, start_coords, end_coords)
 solver.solve()
+
