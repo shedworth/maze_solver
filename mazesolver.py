@@ -30,4 +30,3 @@ end_coords = (78, 1)
 
 solver = MazeSolver(ascii_maze, start_coords, end_coords)
 solver.solve()
-
