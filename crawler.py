@@ -21,10 +21,11 @@ class MazeSolver:
 			crawler.crawl()
 			counter += 1
 		if finished == True:
-			print("Finished in {0} steps!".format(counter))
+			return True
+			# print("Finished in {0} steps!".format(counter))
 		else:
-			print("No solution found.")
-
+			return False
+			# print("No solution found.")
 
 
 class Crawler:	
