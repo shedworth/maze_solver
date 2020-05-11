@@ -11,12 +11,14 @@ class MazeRunner:
 		self.maze_file = maze_file
 
 	def perform(self):
-		parser = MazeParser(self.maze)
+		parser = MazeParser(self.maze_file)
 		self.maze = parser.perform()
-		self.solver = MazeSolver(self.ascii_maze, self.start_coords, self.end_coords)
+		# import code; code.interact(local=dict(globals(), **locals()))
+		print(self.maze)
+		self.solver = MazeSolver(self.maze, self.start_coords, self.end_coords)
 		return self.solver.solve()
 
 
 
-
-
+runner = MazeRunner('mazes.txt')
+runner.perform()
