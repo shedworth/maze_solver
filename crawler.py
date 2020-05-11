@@ -1,33 +1,3 @@
-class MazeSolver:
-	def __init__(self, maze, start_x, start_y, end_x, end_y):
-		self.maze = maze
-		self.start_x, self.start_y = (start_x, start_y)
-		self.end_x, self.end_y = (end_x, end_y)
-
-		self.num_of_squares = len(self.maze) * len(self.maze[0])
-
-	def solve(self):
-
-		finished = False
-		counter = 1
-		crawler = Crawler(self.start_x, self.start_y, self.maze)
-
-		for i in range(self.num_of_squares):
-			crawler_position = (crawler.x, crawler.y)
-			print(crawler_position)
-			if crawler_position == (self.end_x, self.end_y):
-				finished = True
-				break
-			crawler.crawl()
-			counter += 1
-		if finished == True:
-			return True
-			# print("Finished in {0} steps!".format(counter))
-		else:
-			return False
-			# print("No solution found.")
-
-
 class Crawler:	
 	def __init__(self, start_x, start_y, maze):
 		self.x = start_x
@@ -39,15 +9,20 @@ class Crawler:
 								"right": 	[1, 1, 0, ">"],			# [list rotation index, x shift, y shift, symbol]
 								"down": 	[2, 0, 1, "v"],
 								"left": 	[3, -1, 0, "<"]}
-	def crawl(self):						# Crawl starting from leftmost available path
+
+	def crawl(self):						# Crawl one space starting from leftmost available path
+		movement_list = self.movements_to_try()
+		self.move_in_order(movement_list)
+
+	def movements_to_try(self):
 		cls = self.__class__
 		movements = ["left", "up", "right", "down"]
 		movement_idx = cls.directions[self.pointing][0]
 		list_rotator = lambda lst, n: lst[n:] + lst[:n]
 		movements = list_rotator(movements, movement_idx)
-		self.move_in_order(movements)
+		return movements
 
-	def move_in_order(self, direction_list):					# Attempts to move crawler in order of preference
+	def move_in_order(self, direction_list): # Attempts to move crawler in order of preference
 		for direction in direction_list:
 			if self.is_space(direction):
 				self.shift(direction)
@@ -58,7 +33,7 @@ class Crawler:
 		self.x = self.x+cls.directions[direction][1]
 		self.y = self.y+cls.directions[direction][2]
 		self.pointing = direction
-		print(cls.directions[direction][3])
+		print(cls.directions[direction][3])		# Print direction indicator (<>^v)
 
 	def is_space(self, direction):				# Checks if adjacent space is a path or wall
 		cls = self.__class__

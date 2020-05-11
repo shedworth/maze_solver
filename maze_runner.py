@@ -1,4 +1,4 @@
-from mazetools import MazeSolver
+from maze_solver import MazeSolver
 
 
 
