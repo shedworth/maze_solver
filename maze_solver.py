@@ -7,7 +7,7 @@ class MazeSolver:
 		self.end_x, self.end_y = end_coords
 		self.num_of_squares = len(self.maze) * len(self.maze[0])
 
-	def solve(self):
+	def perform(self):
 		finished = False
 		counter = 0
 		crawler = Crawler(self.start_x, self.start_y, self.maze)
@@ -18,7 +18,7 @@ class MazeSolver:
 			if crawler_position == (self.end_x, self.end_y):
 				finished = True
 				break
-			crawler.crawl()
+			crawler.perform()
 			counter += 1
 
 		return finished 

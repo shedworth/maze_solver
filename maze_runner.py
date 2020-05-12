@@ -11,4 +11,4 @@ class MazeRunner:
 		(self.maze, self.start_coords, self.end_coords) = parser.perform()
 		# import code; code.interact(local=dict(globals(), **locals()))
 		self.solver = MazeSolver(self.maze, self.start_coords, self.end_coords)
-		return self.solver.solve()
+		return self.solver.perform()

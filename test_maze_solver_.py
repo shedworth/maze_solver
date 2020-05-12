@@ -11,10 +11,10 @@ class MazeSolverTests(unittest.TestCase):
 		parser = MazeParser('mazes/maze_pass.txt')
 		self.maze, self.start_coords, self.end_coords = parser.perform()
 		solver = MazeSolver(self.maze, self.start_coords, self.end_coords)
-		self.assertTrue(solver.solve())
+		self.assertTrue(solver.perform())
 
 	def test_returns_from_unsolvable_maze(self):
 		parser = MazeParser('mazes/maze_fail_no_solution.txt')
 		self.maze, self.start_coords, self.end_coords = parser.perform()
 		solver = MazeSolver(self.maze, self.start_coords, self.end_coords)
-		self.assertFalse(solver.solve())
+		self.assertFalse(solver.perform())

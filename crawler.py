@@ -10,7 +10,7 @@ class Crawler:
 								"down": 	[2, 0, 1, "v"],
 								"left": 	[3, -1, 0, "<"]}
 
-	def crawl(self):						# Crawl one space starting from leftmost available path
+	def perform(self):						# Crawl one space starting from leftmost available path
 		movement_list = self.movements_to_try()
 		self.move_in_order(movement_list)
 

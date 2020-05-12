@@ -11,10 +11,10 @@ class CrawlerTests(unittest.TestCase):
 									]
 
 		self.crawler = Crawler(3, 2, self.maze)
-	# Test 'crawl' method
-
+	
+	# Test 'perform' method
 	def test_turns_left_when_facing_wall(self):
-		self.crawler.crawl()
+		self.crawler.perform()
 		self.assertEqual(self.crawler.x, 2)
 		self.assertEqual(self.crawler.y, 2)
 		
