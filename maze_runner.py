@@ -9,6 +9,8 @@ class MazeRunner:
 	def perform(self):
 		parser = MazeParser(self.maze_file)
 		(self.maze, self.start_coords, self.end_coords) = parser.perform()
+		solver = MazeSolver(self.maze, self.start_coords, self.end_coords)
+		return solver.perform()
+		
+
 		# import code; code.interact(local=dict(globals(), **locals()))
-		self.solver = MazeSolver(self.maze, self.start_coords, self.end_coords)
-		return self.solver.perform()
