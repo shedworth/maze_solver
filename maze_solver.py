@@ -14,7 +14,7 @@ class MazeSolver:
 
 		for i in range(self.num_of_squares):
 			crawler_position = (crawler.x, crawler.y)
-			print(crawler_position)
+			# print(crawler_position)
 			if crawler_position == (self.end_x, self.end_y):
 				finished = True
 				break

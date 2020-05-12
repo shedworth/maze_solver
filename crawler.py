@@ -33,14 +33,14 @@ class Crawler:
 		self.x = self.x+cls.directions[direction][1]
 		self.y = self.y+cls.directions[direction][2]
 		self.pointing = direction
-		print(cls.directions[direction][3])		# Print direction indicator (<>^v)
+		# print(cls.directions[direction][3])		# Print direction indicator (<>^v)
 
 	def is_space(self, direction):				# Checks if adjacent space is a path or wall
 		cls = self.__class__
 		row = self.x+cls.directions[direction][1] - 1
 		column = self.y+cls.directions[direction][2] - 1
 		try:
-			if self.maze[column][row] == " ":			# Is a path
+			if self.maze[column][row] == " " or self.maze[column][row] == "F": # Is a path
 				return True
 			else:
 				return False												# Is a wall
