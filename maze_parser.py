@@ -1,5 +1,10 @@
-class MazeParser:
+from base_objects import Maze
 
+class MazeParser:
+	"""Takes a .txt file and returns a Maze object if it contains
+	a valid maze. A valid maze is a .txt file containing a S
+	(representing the starting point) and a F (representing
+	the ending point"""
 	def __init__(self, maze_file):
 		self.maze_file = maze_file
 
@@ -16,5 +21,5 @@ class MazeParser:
 					if output[y][x] == "F":
 						end_coords = (x+1, y+1) 
 				if start_coords and end_coords:
-					return (output, start_coords, end_coords)
+					return Maze(output, start_coords, end_coords)
 
