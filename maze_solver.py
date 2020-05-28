@@ -8,20 +8,27 @@ class MazeSolver:
 		self.maze_map = parsed_maze.maze_map
 		self.start_x, self.start_y = parsed_maze.start_coords
 		self.end_x, self.end_y = parsed_maze.end_coords
-		self.num_of_squares = len(self.maze_map) * len(self.maze_map[0])
-
+	
 	def perform(self):
 		finished = False
 		counter = 0
-		crawler = Crawler(self.start_x, self.start_y, self.maze_map)
+		crawler = Crawler(self.maze_map, self.start_x, self.start_y)
 
-		for i in range(self.num_of_squares):
+		"""For loop prevents crawler from endlessly moving
+		around an unsolvable maze by returning after all squares
+		have been visited"""
+		for i in range(self._num_of_squares()):
 			crawler_position = (crawler.x, crawler.y)
-			# print(crawler_position)
 			if crawler_position == (self.end_x, self.end_y):
 				finished = True
 				break
+			#Move crawler one space
 			crawler.perform()
 			counter += 1
 
 		return finished 
+
+	"""Private Methods"""
+
+	def _num_of_squares(self):
+		return len(self.maze_map) * len(self.maze_map[0])

@@ -1,17 +1,20 @@
 import unittest
 from crawler import Crawler
+from base_objects import Maze
 
 class CrawlerTests(unittest.TestCase):
 
 	def setUp(self):
-		self.maze_map = [
+		maze_map = [
 			"000000",
 			"0  0 0 ",
 			"0 00 0",
 			"  0000"
 		]
+		start_x = 3
+		start_y = 2
 
-		self.crawler = Crawler(3, 2, self.maze_map)
+		self.crawler = Crawler(maze_map, start_x, start_y)
 	
 	# Test 'perform' method
 	def test_turns_left_when_facing_wall(self):

@@ -15,4 +15,3 @@ class MazeManager:
         return solver.perform()
 
 
-# import code; code.interact(local=dict(globals(), **locals()))
