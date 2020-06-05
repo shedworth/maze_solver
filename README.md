@@ -13,9 +13,12 @@ Objects:
 							- Returns False if maze invalid
 
 - MazeSolver:	-	Accepts maze, start_coords, end_coords as input
-							- Moves Crawler object around maze and monitors it's position
+							- Moves Crawler object around maze and monitors it's position.
+							When crawler encounters a dead end, dead end is deleted and 
+							crawler position is reset to last known good path.
 							- If Crawler moves more than the total number of squares, maze is deemed unsolvable
-							- Returns True if Crawler reaches end_coords
+							- Returns list of co-ordinates representing solution if maze 
+							solvable
 							- Returns False if maze unsolvable
 
 - Crawler:		- Accepts x and y coords, and maze as inputs

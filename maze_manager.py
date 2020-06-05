@@ -10,8 +10,8 @@ class MazeManager:
 
     def perform(self):
         parser = MazeParser(self.maze_file)
-        #Parser returns Maze object
-        parsed_maze = parser.perform()      # Returns Maze named-tuple
+        #Parser returns Maze named-tuple
+        parsed_maze = parser.perform() 
         solver = MazeSolver(parsed_maze)    
         solved_maze_coords = solver.perform()
         if not solved_maze_coords:
