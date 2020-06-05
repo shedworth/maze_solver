@@ -1,12 +1,14 @@
+from base_objects import CrawlerPosition
+
 class Crawler:
 	"""Moves to the next available space on a maze map, starting at the
 	specified start co-ordinates and returns its new position"""	
-	def __init__(self, maze_map, start_x, start_y):
+	def __init__(self, maze_map, start_x, start_y, pointing="left"):
 		# import code; code.interact(local=dict(globals(), **locals()))
 
 		self.x, self.y = start_x, start_y
 		self.maze_map = maze_map
-		self.pointing = "up"
+		self.pointing = pointing
 
 	"""Coefficients for use in other methods:
 	[list rotation index, x _shift, y _shift, symbol]"""
@@ -21,6 +23,18 @@ class Crawler:
 		# Crawl one space starting from leftmost available path
 		movement_list = self._movements_to_try()
 		self._move_in_order(movement_list)
+		return CrawlerPosition(self.x, self.y, self.pointing)
+
+	def flip(self):
+		#Turn crawler 90deg clockwise
+		if self.pointing == "up":
+			self.pointing = "down"
+		elif self.pointing == "right":
+			self.pointing = "left"
+		elif self.pointing == "down":
+			self.pointing = "up"
+		elif self.pointing == "left":
+			self.pointing = "right"
 
 	"""Private Methods"""
 
@@ -62,3 +76,5 @@ class Crawler:
 		except IndexError:
 		# Is edge of maze_map (first/last index in row or column array)
 			return False
+
+

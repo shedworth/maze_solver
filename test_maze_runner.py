@@ -22,4 +22,3 @@ class MazeRunnerTests(unittest.TestCase):
 	def test_fails_maze_with_blockage(self):
 		maze_runner = MazeManager('mazes/maze_fail_no_solution.txt')
 		self.assertFalse(maze_runner.perform())
-

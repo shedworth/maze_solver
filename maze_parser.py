@@ -22,4 +22,3 @@ class MazeParser:
 						end_coords = (x+1, y+1) 
 				if start_coords and end_coords:
 					return Maze(output, start_coords, end_coords)
-

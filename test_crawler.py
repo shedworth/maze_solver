@@ -1,6 +1,5 @@
 import unittest
 from crawler import Crawler
-from base_objects import Maze
 
 class CrawlerTests(unittest.TestCase):
 
